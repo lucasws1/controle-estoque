@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideNav from "@/components/sidenav";
 import MenubarMobile from "@/components/menubarMobile";
+import TituloDaPagina from "@/components/tituloDaPagina";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +28,14 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
       lang="en"
     >
-      <body>
-        <div className="mx-4 flex items-center justify-center">
-          <aside>
+      <body className="mb-14">
+        <div className="mx-auto mt-2 flex w-full flex-col gap-4">
+          <TituloDaPagina />
+          <div className="mx-2 flex gap-4">
             <SideNav />
-          </aside>
-          <div className="flex-1">{children}</div>
-          <MenubarMobile />
+            <div className="flex-1">{children}</div>
+            <MenubarMobile />
+          </div>
         </div>
       </body>
     </html>

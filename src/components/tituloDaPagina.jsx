@@ -26,7 +26,7 @@ export default function TituloDaPagina() {
   const title = titles[pathname] || { label: "Controle Estoque", icon: null };
 
   return (
-    <div className="mt-2 mb-4 flex items-center justify-center gap-2 text-3xl text-neutral-200">
+    <div className="flex items-center justify-center gap-2 text-3xl text-neutral-200">
       {title.icon} {title.label}
     </div>
   );

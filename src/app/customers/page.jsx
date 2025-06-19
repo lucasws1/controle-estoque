@@ -1,5 +1,4 @@
 import TableCustomers from "@/components/tableCustomers";
-import TituloDaPagina from "@/components/tituloDaPagina";
 
 export const metadata = {
   title: "Clientes",
@@ -7,8 +6,7 @@ export const metadata = {
 
 export default function Clientes() {
   return (
-    <div className="flex flex-col">
-      <TituloDaPagina />
+    <div className="mx-auto">
       <TableCustomers />
     </div>
   );
