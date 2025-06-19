@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function TopCards() {
   return (
-    <div className="mx-4 mt-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div className="mx-auto grid w-[95%] grid-cols-1 gap-4 md:grid-cols-4">
       <Card>
         <CardHeader>
           <CardTitle>Total Bruto (mês)</CardTitle>

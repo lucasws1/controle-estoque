@@ -10,7 +10,7 @@ import {
 
 export default function TableDashboard() {
   return (
-    <div className="flex mt-6 mx-4 md:mx-auto md:w-[90%]">
+    <div className="mx-auto mt-4 flex w-[95%]">
       <Table>
         <TableCaption>Lista de transações recentes</TableCaption>
         <TableHeader>

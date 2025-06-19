@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       lang="en"
     >
       <body>
-        <div className="mt-4 mb-13 flex">
+        <div className="mx-4 flex items-center justify-center">
           <aside>
             <SideNav />
           </aside>

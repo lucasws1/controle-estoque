@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function SideNav() {
   return (
-    <div className="mt-14 hidden lg:flex">
-      <div className="flex w-42 flex-col items-center justify-center gap-2">
+    <div className="hidden flex-col lg:flex">
+      <div className="flex flex-col items-center justify-center gap-2">
         <Link href="/">
           <Button variant="outline" className="w-32">
             <HomeIcon /> Painel

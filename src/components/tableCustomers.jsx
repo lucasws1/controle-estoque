@@ -1,3 +1,4 @@
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -7,27 +8,31 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users } from "lucide-react";
+import prisma from "@/lib/prisma";
 
-export default function TableDashboard() {
+export default async function TableCustomers() {
+  const customers = await prisma.customer.findMany();
+
   return (
-    <div className="mx-4 mt-6 flex flex-col md:mx-auto md:w-[90%]">
+    <div className="mx-auto flex w-[98%] flex-col">
       <Table>
         <TableCaption>Lista de clientes</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="">Nome</TableHead>
+            <TableHead>Nome</TableHead>
             <TableHead>Mês R$</TableHead>
             <TableHead className="text-right">Pendente R$</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">Verônica</TableCell>
-            <TableCell>3.600</TableCell>
-            <TableCell className="text-right">3.600,00</TableCell>
-          </TableRow>
+          {customers.map((customer) => (
+            <TableRow key={customer.id}>
+              <TableCell className="font-medium">{customer.name}</TableCell>
+              <TableCell>3.600</TableCell>
+              <TableCell className="text-right">3.600,00</TableCell>
+            </TableRow>
+          ))}
           <TableRow>
             <TableCell className="font-medium">Beto</TableCell>
             <TableCell>2.000</TableCell>
