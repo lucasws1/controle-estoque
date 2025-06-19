@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function SideNav() {
   return (
-    <div className="hidden flex-col lg:flex">
+    <div className="ml-6 hidden flex-col lg:flex">
       <div className="flex flex-col items-center justify-center gap-2">
         <Link href="/">
           <Button variant="outline" className="w-32">

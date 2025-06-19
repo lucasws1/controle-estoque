@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
       lang="en"
     >
       <body className="mb-14">
-        <div className="mx-auto mt-2 flex w-full flex-col gap-4">
+        <div className="mt-2 flex w-full flex-col gap-4">
           <TituloDaPagina />
-          <div className="mx-2 flex gap-4">
+          <div className="flex">
             <SideNav />
             <div className="flex-1">{children}</div>
             <MenubarMobile />

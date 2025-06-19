@@ -9,13 +9,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Users } from "lucide-react";
-import prisma from "@/lib/prisma";
 
-export default async function TableCustomers() {
-  const customers = await prisma.customer.findMany();
+export default async function TableCustomers({ customers }) {
+  console.log(customers);
 
   return (
-    <div className="mx-auto flex flex-col">
+    <div className="flex flex-col">
       <Table>
         <TableCaption>Lista de clientes</TableCaption>
         <TableHeader>
@@ -29,8 +28,10 @@ export default async function TableCustomers() {
           {customers.map((customer) => (
             <TableRow key={customer.id}>
               <TableCell className="font-medium">{customer.name}</TableCell>
-              <TableCell>3.600</TableCell>
-              <TableCell className="text-right">14.550</TableCell>
+              <TableCell>{customer.monthAmount}</TableCell>
+              <TableCell className="text-right">
+                {customer.pendingAmount}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

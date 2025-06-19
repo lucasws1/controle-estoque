@@ -45,27 +45,22 @@ const productData = [
   {
     name: "Caixa LP",
     price: 360.0,
-    description: "Cartela Pequena",
   },
   {
     name: "Caixa LG",
     price: 360.0,
-    description: "Cartela Grande",
   },
   {
     name: "Caneta",
     price: 80.0,
-    description: "Caneta hidrocor avulsa",
   },
   {
     name: "Bolinha",
     price: 3600.0,
-    description: "Jogo de bolinhas coloridas",
   },
   {
     name: "Caixa de Canetas",
     price: 3800.0,
-    description: "Caixa de canetas coloridas",
   },
 ];
 
@@ -178,55 +173,31 @@ const stockMovementData = [
 ];
 
 export async function main() {
-  for (const i of invoiceData) {
-    await prisma.invoice.create({ data: i });
-  }
+  try {
+    for (const i of invoiceData) {
+      await prisma.invoice.create({ data: i });
+    }
 
-  for (const p of productData) {
-    await prisma.product.create({ data: p });
-  }
+    for (const p of productData) {
+      await prisma.product.create({ data: p });
+    }
 
-  for (const item of invoiceItemData) {
-    await prisma.invoiceItem.create({ data: item });
-  }
+    for (const item of invoiceItemData) {
+      await prisma.invoiceItem.create({ data: item });
+    }
 
-  for (const sm of stockMovementData) {
-    await prisma.stockMovement.create({ data: sm });
-  }
+    for (const sm of stockMovementData) {
+      await prisma.stockMovement.create({ data: sm });
+    }
 
-  console.log(
-    "Invoices, Products, Invoice Items, and Stock Movements seeded successfully.",
-  );
+    console.log(
+      "Invoices, Products, Invoice Items, and Stock Movements seeded successfully.",
+    );
+  } catch (error) {
+    console.error("Error seeding data:", error);
+  } finally {
+    await prisma.$disconnect();
+  }
 }
 
 main();
-
-// const customerData = [
-//   {
-//     name: "Beto",
-//     email: "beto@gmail.com",
-//     phone: "55 999995734",
-//   },
-//   {
-//     name: "Paulinho",
-//     phone: "53 938291039",
-//   },
-//   {
-//     name: "Irondina",
-//     email: "",
-//     phone: "53 938291039",
-//   },
-//   {
-//     name: "Preto",
-//     phone: "51 934231039",
-//   },
-//   {
-//     name: "Cris",
-//     email: "cris@yahoo.com.br",
-//     phone: "53 929438102",
-//   },
-//   {
-//     name: "Imperial",
-//     email: "imperial@gmail.com",
-//   },
-// ];

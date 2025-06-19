@@ -27,7 +27,7 @@ model Customer {
 model Invoice {
   id           Int           @id @default(autoincrement())
   amount       Float
-  status       String // pending, paid
+  pending      Boolean @default(true)
   purchaseDate DateTime
   customerId   Int
   customer     Customer      @relation(fields: [customerId], references: [id])
