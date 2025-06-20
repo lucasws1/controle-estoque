@@ -11,17 +11,17 @@ import {
 import { Users } from "lucide-react";
 
 export default async function TableCustomers({ customers }) {
-  console.log(customers);
-
   return (
     <div className="flex flex-col">
       <Table>
         <TableCaption>Lista de clientes</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Nome</TableHead>
-            <TableHead>Mês R$</TableHead>
-            <TableHead className="text-right">Pendente R$</TableHead>
+            <TableHead className="font-bold text-neutral-400">Nome</TableHead>
+            <TableHead className="font-bold text-neutral-400">Mês</TableHead>
+            <TableHead className="text-right font-bold text-neutral-400">
+              Pendente
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -30,18 +30,21 @@ export default async function TableCustomers({ customers }) {
               <TableCell className="font-medium">{customer.name}</TableCell>
               <TableCell>{customer.monthAmount}</TableCell>
               <TableCell className="text-right">
-                {customer.pendingAmount}
+                {customer.pendingAmount.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <div className="flex justify-end">
-        <Card className="mt-4">
-          <CardContent className="flex items-center gap-2 px-4 py-2">
-            <Users className="text-primary h-5 w-5" />
-            <span className="text-sm">Total de clientes:</span>
-            <span className="text-base font-bold">{customers.length}</span>
+      <div className="mt-3 flex justify-end">
+        <Card className="">
+          <CardContent className="flex gap-2">
+            <Users className="h-5 w-5" />
+            <span>Clientes:</span>
+            <span>{customers.length}</span>
           </CardContent>
         </Card>
       </div>
